@@ -145,31 +145,31 @@ class PatentInfo:
     def output_inventor(self):
         with open(FilePathDef.INVENTOR_FILE_PATH, 'a') as fs:
             for inventor in self.inventor:
-                inventor.output(fs, self.ida)
+                inventor.output(fs, self.pnr)
         pass
 
     def output_ipc(self):
         with open(FilePathDef.IPC_FILE_PATH, 'a') as fs:
             for ipc in self.ipc:
-                ipc.output(fs, self.ida)
+                ipc.output(fs, self.pnr)
         pass
 
     def output_applicant(self):
         with open(FilePathDef.APPLICANT_FILE_PATH, 'a') as fs:
             for applicant in self.applicant:
-                applicant.output(fs, self.ida)
+                applicant.output(fs, self.pnr)
         pass
 
     def output_claim(self):
         with open(FilePathDef.CLAIM_FILE_PATH, 'a') as fs:
             for claim in self.claim:
-                claim.output(fs, self.ida)
+                claim.output(fs, self.pnr)
         pass
 
     def output_event(self):
         with open(FilePathDef.EVENT_FILE_PATH, 'a') as fs:
             for event in self.event:
-                event.output(fs, self.ida)
+                event.output(fs, self.pnr)
         pass
 
     def output_publn(self):
@@ -179,7 +179,7 @@ class PatentInfo:
 
     def output_date(self):
         with open(FilePathDef.DATE_FILE_PATH, 'a') as fs:
-            fs.write("{1}{0}{2}\n".format(OUTPUT_FILE_SEPARATOR, self.ida, self.adate))
+            fs.write("{1}{0}{2}\n".format(OUTPUT_FILE_SEPARATOR, self.pnr, self.adate))
         pass
 
     def output_basic(self):
@@ -191,32 +191,39 @@ class PatentInfo:
 
     def output_desc(self):
         with open(FilePathDef.DESC_FILE_PATH, 'a') as fs:
-            fs.write("{1}{0}{2}\n".format(OUTPUT_FILE_SEPARATOR, self.ida, self.desc))
+            fs.write("{1}{0}{2}\n".format(OUTPUT_FILE_SEPARATOR, self.pnr, self.desc))
         pass
-    def output_cite(self, ida):
+    
+    def output_title(self):
+        with open(FilePathDef.TITLE_FILE_PATH, 'a') as fs:
+            fs.write("{1}{0}{2}\n".format(OUTPUT_FILE_SEPARATOR, self.pnr, self.title))
+        pass
+
+    def output_cite(self, pnr):
         with open(FilePathDef.CITE_FILE_PATH, 'a') as fs:
             if self.cite:
                 for cite in self.cite:
-                    cite.output(fs, ida)
+                    cite.output(fs, pnr)
         pass
 
-    def output_family_cite(self, ida):
+    def output_family_cite(self, pnr):
         with open(FilePathDef.FAMILY_CITE_FILE_PATH, 'a') as fs:
             if self.family_cite:
                 for cite in self.family_cite:
-                    cite.output(fs, ida)
+                    cite.output(fs, pnr)
         pass
 
     def output_data(self):
         self.output_publn()
         self.output_date()
         self.output_basic()
-        self.output_cite(self.ida)
-        self.output_family_cite(self.ida)
+        self.output_cite(self.pnr)
+        self.output_family_cite(self.pnr)
         self.output_inventor()
         self.output_ipc()
         self.output_applicant()
         self.output_claim()
         self.output_event()
         self.output_desc()
+        self.output_title()
         pass

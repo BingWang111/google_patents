@@ -6,7 +6,7 @@ class IPC:
         self.code = code
         self.ipc_seq = ipc_seq
 
-    def output(self, fs, ida):
+    def output(self, fs, pnr):
         if fs is None:
             return
-        fs.write("{1}{0}{2}{0}{3}\n".format(OUTPUT_FILE_SEPARATOR, ida, self.ipc_seq, self.code))
+        fs.write("{1}{0}{2}{0}{3}\n".format(OUTPUT_FILE_SEPARATOR, pnr, self.ipc_seq, self.code))

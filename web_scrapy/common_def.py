@@ -3,6 +3,11 @@ import os
 # OUTPUT_DIR = "paper_output"
 OUTPUT_DIR = "patent_output"
 INPUT_DIR = "patent_input"
+HTML_DIR = "description/invention" 
+HTML_DOWNLOAD_DIR = "description/htmltemp/"
+UTILITY_DIR = "description/utility"
+INVENTION_DIR = "description/invention"
+
 INVENTOR_FILE_NAME = "inventor.txt"
 APPLICANT_FILE_NAME = "applicant.txt"
 IPC_FILE_NAME = "ipc.txt"
@@ -35,3 +40,5 @@ class FilePathDef:
     EVENT_FILE_PATH = os.path.join(OUTPUT_DIR, EVENT_FILE_NAME)
     BASIC_FILE_PATH = os.path.join(OUTPUT_DIR, BASIC_FILE_NAME)
     PROC_HISTORY_PTS_FILE_PATH = os.path.join(OUTPUT_DIR, PROC_HISTORY_PTS_FILE_NAME)
+    UTILITY_DIR = os.path.join(UTILITY_DIR)
+    INVENTION_DIR = os.path.join(INVENTION_DIR)

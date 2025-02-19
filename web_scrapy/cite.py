@@ -11,10 +11,10 @@ class Cite:
         self.orig_assignee = orig_assignee
         self.title = title
 
-    def output(self, fs, ida):
+    def output(self, fs, pnr):
         if fs is None:
             return
         fs.write(
-            "{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{7}\n".format(OUTPUT_FILE_SEPARATOR, ida, self.cited_pnr, self.language,
+            "{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{7}\n".format(OUTPUT_FILE_SEPARATOR, pnr, self.cited_pnr, self.language,
                                                             self.examiner_cite, self.pridate, self.pdate,
                                                             self.orig_assignee, self.title))
